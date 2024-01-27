@@ -1,12 +1,77 @@
 {
   "root": true,
   "ignorePatterns": ["!**/*"],
-  "plugins": ["@nx"],
+  "plugins": ["@nx", "ordered-imports", "prettier", "react-hooks"],
   "overrides": [
     {
       "files": ["*.ts", "*.tsx"],
-      "extends": ["plugin:@nx/typescript"],
-      "rules": {}
+      "extends": ["plugin:@nx/typescript", "plugin:react/recommended"],
+      "rules": {
+        "no-use-before-define": "warn",
+        "@typescript-eslint/no-use-before-define": ["error"],
+        "react/jsx-filename-extension": [
+          "warn",
+          {
+            "extensions": [".tsx"]
+          }
+        ],
+        "no-shadow": "warn",
+        "@typescript-eslint/no-shadow": ["warn"],
+        "@typescript-eslint/explicit-function-return-type": ["off"],
+        "max-len": [
+          "warn",
+          {
+            "code": 100
+          }
+        ],
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": ["warn"],
+        "import/prefer-default-export": "off",
+        "react/prop-types": "warn",
+        "arrow-parens": ["error", "as-needed"],
+        "@typescript-eslint/semi": ["warn"],
+        "quotes": ["error", "single"],
+        "@typescript-eslint/space-before-function-paren": [0],
+        "@typescript-eslint/triple-slash-reference": ["warn"],
+        "react/react-in-jsx-scope": "off",
+        "@typescript-eslint/consistent-type-definitions": ["off"],
+        "@typescript-eslint/member-delimiter-style": ["warn"],
+        "@typescript-eslint/prefer-ts-expect-error": ["warn"],
+        "no-console": ["warn"],
+        "@typescript-eslint/indent": ["warn", 4],
+        "react/jsx-indent": ["warn", 4],
+        "react/jsx-indent-props": ["warn", 4],
+        "react/jsx-max-props-per-line": [
+          "warn",
+          {
+            "maximum": 1,
+            "when": "multiline"
+          }
+        ],
+        "react/jsx-first-prop-new-line": ["warn", "multiline"],
+        "react/jsx-closing-tag-location": ["warn"],
+        "@typescript-eslint/no-empty-function": ["warn"],
+        "@typescript-eslint/no-dynamic-delete": ["warn"],
+        "multiline-ternary": ["off"],
+        "ordered-imports/ordered-imports": [
+          "error",
+          {
+            "group-ordering": [
+              {
+                "name": "relative dir",
+                "match": "^[.].*",
+                "order": 2
+              },
+              {
+                "name": "node_modules",
+                "match": ".*",
+                "order": 1
+              }
+            ]
+          }
+        ],
+        "prettier/prettier": ["warn", {}, { "usePrettierrc": true }]
+      }
     },
     {
       "files": ["*.js", "*.jsx"],

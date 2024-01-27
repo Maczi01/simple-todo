@@ -9,9 +9,14 @@
   },
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.11.3",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.15.6",
     "@swc/helpers": "~0.5.2",
+    "axios": "^1.6.7",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-query": "^3.39.3"
   },
   "devDependencies": {
     "@nx/eslint": "17.2.8",
@@ -34,13 +39,15 @@
     "@vitest/ui": "~0.34.6",
     "eslint": "~8.48.0",
     "eslint-config-prettier": "^9.0.0",
-    "eslint-plugin-import": "2.27.5",
+    "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-jsx-a11y": "6.7.1",
+    "eslint-plugin-ordered-imports": "0.6.0",
+    "eslint-plugin-prettier": "5.0.1",
     "eslint-plugin-react": "7.32.2",
     "eslint-plugin-react-hooks": "4.6.0",
     "jsdom": "~22.1.0",
     "nx": "17.2.8",
-    "prettier": "^2.6.2",
+    "prettier": "^3.0.0",
     "typescript": "~5.2.2",
     "vite": "^5.0.0",
     "vitest": "~0.34.6"
