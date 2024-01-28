@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const api = axios.create({
-    baseURL: import.meta.env.VITE_APP_BACKEND_URL,
+    baseURL: process.env.NODE_ENV === 'prod' && import.meta.env.VITE_APP_BACKEND_URL,
 });
 
 export const getAllTodos = async () => {

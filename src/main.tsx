@@ -10,10 +10,23 @@ const queryClient = new QueryClient({
         queries: { refetchOnWindowFocus: false },
     },
 });
-root.render(
-    <StrictMode>
-        <QueryClientProvider client={queryClient}>
-            <App />
-        </QueryClientProvider>
-    </StrictMode>,
-);
+
+async function enableMocking() {
+    if (process.env.NODE_ENV === 'prod') {
+        return;
+    }
+
+    const { worker } = await import('./app/mocks/browser');
+
+    return worker.start();
+}
+
+enableMocking().then(() => {
+    root.render(
+        <StrictMode>
+            <QueryClientProvider client={queryClient}>
+                <App />
+            </QueryClientProvider>
+        </StrictMode>,
+    );
+});
