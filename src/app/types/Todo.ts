@@ -1,6 +1,6 @@
 export type Todo = {
     id: number;
-    name: number;
+    name: string;
     category: string;
     priority: boolean;
 };
